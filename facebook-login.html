@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تسجيل الدخول إلى فيسبوك</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:#f0f2f5;color:#1c1e21;min-height:100vh;display:flex;flex-direction:column}
+.main{flex:1;display:flex;align-items:center;justify-content:center;gap:60px;padding:40px 20px;flex-wrap:wrap}
+.intro{max-width:500px}
+.brand{color:#1877f2;font-family:Arial,sans-serif;font-weight:700;font-size:56px;letter-spacing:-2px;margin-bottom:12px}
+.intro p{font-size:26px;line-height:1.3}
+.box{width:396px;max-width:100%}
+.card{background:#fff;border-radius:8px;padding:20px 16px;box-shadow:0 2px 4px rgba(0,0,0,.1),0 8px 16px rgba(0,0,0,.1)}
+input{width:100%;padding:14px 16px;border:1px solid #dddfe2;border-radius:6px;font:inherit;font-size:17px;margin-bottom:12px;color:#1c1e21}
+input:focus{outline:0;border-color:#1877f2;box-shadow:0 0 0 2px #e7f3ff}
+input.err{border-color:#f02849}
+.msg{color:#f02849;font-size:14px;margin:-6px 0 10px;display:none}
+.login{width:100%;padding:12px;background:#1877f2;color:#fff;border:0;border-radius:6px;font-size:20px;font-weight:700;cursor:pointer}
+.login:hover{background:#166fe5}
+.forgot{display:block;text-align:center;color:#1877f2;font-size:14px;margin:16px 0;text-decoration:none}
+.forgot:hover{text-decoration:underline}
+hr{border:0;border-top:1px solid #dadde1;margin:20px 0}
+.create{display:block;margin:0 auto;padding:12px 16px;background:#42b72a;color:#fff;border:0;border-radius:6px;font-size:17px;font-weight:700;cursor:pointer}
+.create:hover{background:#36a420}
+.page{text-align:center;font-size:14px;margin-top:28px}
+.page a{font-weight:700;color:inherit;text-decoration:none}
+.page a:hover{text-decoration:underline}
+footer{background:#fff;padding:20px 10%;font-size:12px;color:#737373;border-top:1px solid #dddfe2}
+footer div{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+footer a{color:#737373;text-decoration:none}
+footer a:hover{text-decoration:underline}
+.modal{position:fixed;inset:0;background:rgba(255,255,255,.8);display:none;align-items:center;justify-content:center;padding:16px}
+.modal.show{display:flex}
+.mbox{background:#fff;border-radius:8px;width:432px;max-width:100%;padding:16px;box-shadow:0 2px 4px rgba(0,0,0,.2),0 8px 16px rgba(0,0,0,.2)}
+.mbox h2{font-size:32px}.mbox small{color:#606770;font-size:15px}
+.mhead{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid #dadde1;padding-bottom:10px;margin-bottom:16px}
+.x{font-size:28px;background:none;border:0;cursor:pointer;color:#606770}
+.two{display:flex;gap:10px}
+.mbox input{padding:11px;font-size:15px;margin-bottom:10px;background:#f5f6f7}
+.mbox .create{margin-top:10px}
+@media(max-width:900px){.main{flex-direction:column;gap:20px;text-align:center}.brand{font-size:44px}.intro p{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="main">
+  <div class="intro">
+    <div class="brand">facebook</div>
+    <p>يساعدك فيسبوك على التواصل والمشاركة مع الأشخاص في حياتك.</p>
+  </div>
+  <div class="box">
+    <div class="card">
+      <form id="f" novalidate>
+        <input id="u" type="text" placeholder="البريد الإلكتروني أو رقم الهاتف" autocomplete="username">
+        <input id="p" type="password" placeholder="كلمة السر" autocomplete="current-password">
+        <div class="msg" id="m">من فضلك أدخل البريد الإلكتروني وكلمة السر.</div>
+        <button class="login" type="submit">تسجيل الدخول</button>
+      </form>
+      <a class="forgot" href="#">هل نسيت كلمة السر؟</a>
+      <hr>
+      <button class="create" onclick="document.getElementById('md').classList.add('show')">إنشاء حساب جديد</button>
+    </div>
+    <p class="page"><a href="#">أنشئ صفحة</a> لمشاهير أو علامة تجارية أو نشاط تجاري.</p>
+  </div>
+</div>
+
+<footer>
+  <div><a href="#">العربية</a><a href="#">English (US)</a><a href="#">Français</a><a href="#">Español</a><a href="#">Deutsch</a></div>
+  <hr style="margin:8px 0 12px">
+  <div><a href="#">التسجيل</a><a href="#">تسجيل الدخول</a><a href="#">Messenger</a><a href="#">Marketplace</a><a href="#">الخصوصية</a><a href="#">الشروط</a><a href="#">مركز المساعدة</a></div>
+  <span>Meta © 2026</span>
+</footer>
+
+<div class="modal" id="md">
+  <div class="mbox">
+    <div class="mhead"><div><h2>إنشاء حساب جديد</h2><small>إنه سريع وسهل.</small></div><button class="x" onclick="document.getElementById('md').classList.remove('show')">×</button></div>
+    <div class="two"><input placeholder="الاسم الأول"><input placeholder="اسم العائلة"></div>
+    <input placeholder="رقم الهاتف أو البريد الإلكتروني">
+    <input type="password" placeholder="كلمة سر جديدة">
+    <button class="create" style="width:60%">التسجيل</button>
+  </div>
+</div>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  const u=document.getElementById('u'),p=document.getElementById('p'),m=document.getElementById('m');
+  const bad=!u.value.trim()||!p.value;
+  u.classList.toggle('err',!u.value.trim());
+  p.classList.toggle('err',!p.value);
+  m.style.display=bad?'block':'none';
+  if(!bad)alert('تم تسجيل الدخول (واجهة تجريبية فقط)');
+});
+</script>
+</body>
+</html>
